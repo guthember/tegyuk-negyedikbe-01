@@ -54,10 +54,24 @@
           Itt találod az események táblázatát. Ha érdekel egy akkor innen
           azonnal tovább tudsz ugrani a jegyvásárlásra. Jó szórakozást!
         </p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+        <p></p>
+      </div>
+
+      <div class="row events-search-row">
+        <div class="col-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="keresés...">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Example row of columns -->
+      <!--
       <div class="row">
           <table class="table table-striped">
               <thead>
@@ -107,6 +121,37 @@
               </tbody>
             </table>
       </div>
+    -->
+
+    <div class="card-deck events-card-deck">
+        <a href="tickets.html?event=1" class="card">
+              <img class="card-img-top" src="pictures/25_eves_a_sziget_fesztival_1.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Sziget fesztivál</h5>
+                <p class="card-text">Látogass el a 25 éves szigetre és bulizz a legjobb arcokkal.</p>
+                <p class="card-text"><small class="text-muted">2017-08-03</small></p>
+                <button class="btn btn-link float-right">tovább</button>
+              </div>
+        </a>
+        <a href="tickets.html?event=2" class="card">
+            <img class="card-img-top" src="pictures/diotro.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Diótörő balett</h5>
+              <p class="card-text">Nézd meg a grandiózus balett előadást elővételben.</p>
+              <p class="card-text"><small class="text-muted">2017-10-11</small></p>
+              <button class="btn btn-link float-right">tovább</button>
+            </div>
+          </a>
+          <a href="tickets.html?event=3" class="card">
+            <img class="card-img-top" src="pictures/macskak.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Macskák musical</h5>
+              <p class="card-text">Amerika házhoz jön ebben a nagyszerű musicalban.</p>
+              <p class="card-text"><small class="text-muted">2018-01-12</small></p>
+              <button class="btn btn-link float-right">tovább</button>
+            </div>
+          </a>
+    </div>
 
     </div> <!-- /container -->
     
@@ -120,5 +165,20 @@
     <script src="lib/jquery-3.2.1.slim.min.js"></script>
     <script src="lib/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+      $(".events-search-row input").on("keyup", function(ev) {
+        $.each( $(".events-card-deck .card .card-title"), function(i, e) {
+          var elem = $(e);
+          var search = ev.target.value.toLowerCase();
+          var content = elem.html().toLowerCase();
+          if (content.indexOf(search) === -1 ) {
+            elem.parents(".card").hide();
+          } else {
+            elem.parents(".card").show();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
