@@ -3,7 +3,7 @@
 /* @import url('../lib/font-awesome-4.7.0/css/font-awesome.min.css'); */
 body {
     padding-top: 20px;
-    /* padding-bottom: 100px; */
+    padding-bottom: 200px;
     font-family: 'Roboto', sans-serif;
    /*  position: absolute;
     top: 0;
@@ -94,4 +94,24 @@ footer.footer p {
   /* Login page */
   .row-login-form {
     margin-top: 50px;
+  }
+
+  .cherry-custom-file {
+    height: 32px;
+    background-color: #007bff;
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0 0 3px;
+  }
+
+  .cherry-custom-file input {
+    height: 0;
+    visibility: hidden;
+  }
+
+  .cherry-custom-file .file-name {
+    position: relative;
+    top: -22px;
+    left: 10px;
+    color: aliceblue;
   }
